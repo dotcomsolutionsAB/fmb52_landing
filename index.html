@@ -327,13 +327,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping for mobile devices */
-    gap: 20px; /* Add spacing between elements */
+    flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+    gap: 20px; /* Adds space between elements */
 }
 
 .content-column {
-    width: 100%; /* Full width on mobile devices */
-    max-width: 600px; /* Limit the width for larger screens */
+    width: 100%; /* Full width by default */
+    max-width: 600px; /* Limit width for larger screens */
     padding: 10px;
 }
 
@@ -341,32 +341,29 @@
     width: 100%;
     max-width: 600px;
     padding: 10px;
-    text-align: center;
+    text-align: center; /* Centers the image */
 }
 
 .image-box img {
-    max-width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensures the image scales */
+    height: auto; /* Maintains aspect ratio */
 }
 
 .sec-title h1 {
-    font-size: 1.8rem; /* Adjust font size for smaller screens */
+    font-size: 2rem;
     text-align: center;
 }
 
 .text p {
-    font-size: 1rem; /* Adjust text size for readability */
+    font-size: 1rem;
+    line-height: 1.6; /* Improves readability */
+    text-align: justify;
 }
 
-@media (min-width: 550px) {
-    .row{
-        background-color: rgb(93, 205, 205);
-        display: flex;
-        flex-direction: column !important;
-        
-    }
+/* Large devices (desktops, 1200px and above) */
+@media (min-width: 1200px) {
     .content-column {
-        width: 50%; /* Side-by-side layout for tablets and larger screens */
+        width: 50%; /* Side-by-side layout for large screens */
     }
 
     .image-box {
@@ -374,11 +371,71 @@
     }
 
     .sec-title h1 {
-        font-size: 2.5rem; /* Larger font for tablets and desktops */
+        font-size: 2.5rem; /* Larger font size for big screens */
     }
 
     .text p {
-        font-size: 1.1rem; /* Adjust for better readability */
+        font-size: 1.2rem; /* Slightly larger text for readability */
+    }
+}
+
+/* Medium devices (tablets, 768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .content-column {
+        width: 50%; /* Side-by-side layout */
+    }
+
+    .image-box {
+        width: 50%;
+    }
+
+    .sec-title h1 {
+        font-size: 2.2rem; /* Adjust font size for tablets */
+    }
+
+    .text p {
+        font-size: 1.1rem; /* Adjust text size for tablets */
+    }
+}
+
+/* Small devices (phones, 550px to 767px) */
+@media (max-width: 767px) {
+    .content-column {
+        width: 100%; /* Stacks content */
+    }
+
+    .image-box {
+        width: 100%;
+    }
+
+    .sec-title h1 {
+        font-size: 2rem; /* Slightly smaller for small devices */
+    }
+
+    .text p {
+        font-size: 1rem; /* Comfortable reading size */
+    }
+}
+
+/* Extra small devices (phones, below 550px) */
+@media (max-width: 550px) {
+    .row {
+        background-color: rgb(93, 205, 205); /* Example background for extra small screens */
+        flex-direction: column; /* Ensures vertical stacking */
+    }
+
+    .content-column,
+    .image-box {
+        width: 100%; /* Full width */
+    }
+
+    .sec-title h1 {
+        font-size: 1.8rem; /* Smaller for very small screens */
+        text-align: center;
+    }
+
+    .text p {
+        font-size: 0.9rem; /* Smaller font for readability */
     }
 }
 
