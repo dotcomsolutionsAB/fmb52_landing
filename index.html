@@ -322,124 +322,122 @@
             
         </div> -->
         <div class="auto-container">
-            <style>
+        <style>
+            .row {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+            }
+
+            .content-column {
+                width: 100%; /* Full width by default */
+                max-width: 600px; /* Limit width for larger screens */
+                padding: 10px;
+            }
+
+            .image-box {
+                width: 100%;
+                max-width: 600px;
+                padding: 10px;
+                text-align: center; /* Centers the image */
+            }
+
+            .image-box img {
+                max-width: 100%; /* Ensures the image scales */
+                height: auto; /* Maintains aspect ratio */
+            }
+
+            .sec-title h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .text p {
+                font-size: 1rem;
+                line-height: 1.6; /* Improves readability */
+                text-align: justify;
+            }
+
+            /* Large devices (desktops, 1200px and above) */
+            @media (min-width: 1200px) {
+                .content-column {
+                    width: 50%; /* Side-by-side layout for large screens */
+                }
+
+                .image-box {
+                    width: 50%;
+                }
+
+                .sec-title h1 {
+                    font-size: 2.5rem; /* Larger font size for big screens */
+                }
+
+                .text p {
+                    font-size: 1.2rem; /* Slightly larger text for readability */
+                }
+            }
+
+            /* Medium devices (tablets, 768px to 1199px) */
+            @media (min-width: 768px) and (max-width: 1199px) {
+                .content-column {
+                    width: 50%; /* Side-by-side layout */
+                }
+
+                .image-box {
+                    width: 50%;
+                }
+
+                .sec-title h1 {
+                    font-size: 2.2rem; /* Adjust font size for tablets */
+                }
+
+                .text p {
+                    font-size: 1.1rem; /* Adjust text size for tablets */
+                }
+            }
+
+            /* Small devices (phones, 550px to 767px) */
+            @media (max-width: 767px) {
+                .content-column {
+                    width: 100%; /* Stacks content */
+                }
+
+                .image-box {
+                    width: 100%;
+                }
+
+                .sec-title h1 {
+                    font-size: 2rem; /* Slightly smaller for small devices */
+                }
+
+                .text p {
+                    font-size: 1rem; /* Comfortable reading size */
+                }
+            }
+
+            /* Extra small devices (phones, below 550px) */
+            @media (max-width: 550px) {
                 .row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* Ensures items wrap on smaller screens */
-    gap: 20px; /* Adds space between elements */
-}
+                     /* Example background for extra small screens */
+                    flex-direction: column; /* Ensures vertical stacking */
+                }
 
-.content-column {
-    width: 100%; /* Full width by default */
-    max-width: 600px; /* Limit width for larger screens */
-    padding: 10px;
-}
+                .content-column,
+                .image-box {
+                    width: 100%; /* Full width */
+                }
 
-.image-box {
-    width: 100%;
-    max-width: 600px;
-    padding: 10px;
-    text-align: center; /* Centers the image */
-}
+                .sec-title h1 {
+                    font-size: 1.8rem; /* Smaller for very small screens */
+                    text-align: center;
+                }
 
-.image-box img {
-    max-width: 100%; /* Ensures the image scales */
-    height: auto; /* Maintains aspect ratio */
-}
+                .text p {
+                    font-size: 0.9rem; /* Smaller font for readability */
+                }
+            }
 
-.sec-title h1 {
-    font-size: 2rem;
-    text-align: center;
-}
-
-.text p {
-    font-size: 1rem;
-    line-height: 1.6; /* Improves readability */
-    text-align: justify;
-}
-
-/* Large devices (desktops, 1200px and above) */
-@media (min-width: 1200px) {
-    .content-column {
-        width: 50%; /* Side-by-side layout for large screens */
-    }
-
-    .image-box {
-        width: 50%;
-    }
-
-    .sec-title h1 {
-        font-size: 2.5rem; /* Larger font size for big screens */
-    }
-
-    .text p {
-        font-size: 1.2rem; /* Slightly larger text for readability */
-    }
-}
-
-/* Medium devices (tablets, 768px to 1199px) */
-@media (min-width: 768px) and (max-width: 1199px) {
-    .content-column {
-        width: 50%; /* Side-by-side layout */
-    }
-
-    .image-box {
-        width: 50%;
-    }
-
-    .sec-title h1 {
-        font-size: 2.2rem; /* Adjust font size for tablets */
-    }
-
-    .text p {
-        font-size: 1.1rem; /* Adjust text size for tablets */
-    }
-}
-
-/* Small devices (phones, 550px to 767px) */
-@media (max-width: 767px) {
-    .content-column {
-        width: 100%; /* Stacks content */
-    }
-
-    .image-box {
-        width: 100%;
-    }
-
-    .sec-title h1 {
-        font-size: 2rem; /* Slightly smaller for small devices */
-    }
-
-    .text p {
-        font-size: 1rem; /* Comfortable reading size */
-    }
-}
-
-/* Extra small devices (phones, below 550px) */
-@media (max-width: 550px) {
-    .row {
-        background-color: rgb(93, 205, 205); /* Example background for extra small screens */
-        flex-direction: column; /* Ensures vertical stacking */
-    }
-
-    .content-column,
-    .image-box {
-        width: 100%; /* Full width */
-    }
-
-    .sec-title h1 {
-        font-size: 1.8rem; /* Smaller for very small screens */
-        text-align: center;
-    }
-
-    .text p {
-        font-size: 0.9rem; /* Smaller font for readability */
-    }
-}
-
-            </style>
+        </style>
             <div class="row clearfix" style="justify-content: center; align-items: center; flex-wrap: nowrap;">
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                     <div class="content_block_one">
