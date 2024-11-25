@@ -352,7 +352,6 @@ img {
   transition-timing-function: ease-in-out;
   transition-duration: .7s;
   transition-property: all;
-  height: 50px;
 }
 
 /** button **/
