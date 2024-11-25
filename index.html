@@ -322,6 +322,61 @@
             
         </div> -->
         <div class="auto-container">
+            <style>
+                .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping for mobile devices */
+    gap: 20px; /* Add spacing between elements */
+}
+
+.content-column {
+    width: 100%; /* Full width on mobile devices */
+    max-width: 600px; /* Limit the width for larger screens */
+    padding: 10px;
+}
+
+.image-box {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    text-align: center;
+}
+
+.image-box img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+.sec-title h1 {
+    font-size: 1.8rem; /* Adjust font size for smaller screens */
+    text-align: center;
+}
+
+.text p {
+    font-size: 1rem; /* Adjust text size for readability */
+}
+
+@media (min-width: 768px) {
+    .content-column {
+        width: 50%; /* Side-by-side layout for tablets and larger screens */
+    }
+
+    .image-box {
+        width: 50%;
+    }
+
+    .sec-title h1 {
+        font-size: 2.5rem; /* Larger font for tablets and desktops */
+    }
+
+    .text p {
+        font-size: 1.1rem; /* Adjust for better readability */
+    }
+}
+
+            </style>
             <div class="row clearfix" style="justify-content: center; align-items: center; flex-wrap: nowrap;">
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                     <div class="content_block_one">
