@@ -823,15 +823,15 @@ img {
 .main-header .logo-box{
   position: relative;
   float: left;
-  padding: 24px 0px;
+  padding: 0px 0px;
 }
 
 .main-header .logo-box .logo-left{
-  max-width: 1050px;
+  max-width: 120px;
   width: 100%;
 }
 .main-header .logo-box .logo-right{
-  max-width: 150px;
+  max-width: 170px;
   width: 100%;
 }
 
