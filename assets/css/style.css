@@ -834,6 +834,15 @@ img {
   max-width: 170px;
   width: 100%;
 }
+@media (max-width: 520px) {
+
+  .main-header .logo-box .logo-left{
+    max-width: 110px;
+  }
+  .main-header .logo-box .logo-right{
+    max-width: 150px;
+  }
+}
 
 .main-header .logo-box .logo img{
   width: 100%;
