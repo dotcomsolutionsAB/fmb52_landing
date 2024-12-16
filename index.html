@@ -277,7 +277,6 @@
 
         <!-- banner-section -->
         <section class="banner-section p_relative centred">
-
             <style>
                 .unique-slider-container {
                   position: relative;
@@ -380,77 +379,73 @@
                     padding: 0 20px;
                   }
                 }
-              </style>
-              
+            </style>
+                <div class="unique-slider-container">
+                    <div class="dynamic-slider">
+                        <div class="flexible-slide">
+                        <img src="assets/images/banner/banner-1.jpg" alt="Aurora Landscape">
+                        </div>
+                        <div class="flexible-slide">
+                        <img src="assets/images/banner/banner-2.jpg" alt="Crimson Horizon">
+                        </div>
+                        <div class="flexible-slide">
+                        <img src="assets/images/banner/banner-3.jpg" alt="Golden Meadows">
+                        </div>
+                    </div>
 
+                    <div class="action-navigation">
+                        <button class="nav-button prev-btn">‹</button>
+                        <button class="nav-button next-btn">›</button>
+                    </div>
 
-<div class="unique-slider-container">
-  <div class="dynamic-slider">
-    <div class="flexible-slide">
-      <img src="assets/images/banner/banner-1.jpg" alt="Aurora Landscape">
-    </div>
-    <div class="flexible-slide">
-      <img src="assets/images/banner/banner-2.jpg" alt="Crimson Horizon">
-    </div>
-    <div class="flexible-slide">
-      <img src="assets/images/banner/banner-3.jpg" alt="Golden Meadows">
-    </div>
-  </div>
+                    <div class="dot-indicators">
+                        <div class="indicator-dot active" data-slide="0"></div>
+                        <div class="indicator-dot" data-slide="1"></div>
+                        <div class="indicator-dot" data-slide="2"></div>
+                    </div>
+                </div>
+                <script>
+                const slider = document.querySelector('.dynamic-slider');
+                const slides = document.querySelectorAll('.flexible-slide');
+                const prevButton = document.querySelector('.prev-btn');
+                const nextButton = document.querySelector('.next-btn');
+                const dots = document.querySelectorAll('.indicator-dot');
 
-  <div class="action-navigation">
-    <button class="nav-button prev-btn">‹</button>
-    <button class="nav-button next-btn">›</button>
-  </div>
+                let currentIndex = 0;
 
-  <div class="dot-indicators">
-    <div class="indicator-dot active" data-slide="0"></div>
-    <div class="indicator-dot" data-slide="1"></div>
-    <div class="indicator-dot" data-slide="2"></div>
-  </div>
-</div>
+                function updateSlider(index) {
+                    slider.style.transform = `translateX(-${index * 100}%)`;
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
 
-<script>
-  const slider = document.querySelector('.dynamic-slider');
-  const slides = document.querySelectorAll('.flexible-slide');
-  const prevButton = document.querySelector('.prev-btn');
-  const nextButton = document.querySelector('.next-btn');
-  const dots = document.querySelectorAll('.indicator-dot');
+                nextButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateSlider(currentIndex);
+                });
 
-  let currentIndex = 0;
+                prevButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    updateSlider(currentIndex);
+                });
 
-  function updateSlider(index) {
-    slider.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
-  }
+                dots.forEach(dot => {
+                    dot.addEventListener('click', (e) => {
+                    currentIndex = parseInt(e.target.dataset.slide);
+                    updateSlider(currentIndex);
+                    });
+                });
 
-  nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlider(currentIndex);
-  });
-
-  prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlider(currentIndex);
-  });
-
-  dots.forEach(dot => {
-    dot.addEventListener('click', (e) => {
-      currentIndex = parseInt(e.target.dataset.slide);
-      updateSlider(currentIndex);
-    });
-  });
-
-  // Auto-slide functionality
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlider(currentIndex);
-  }, 5000); // Change slide every 5 seconds
-</script>
+                // Auto-slide functionality
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateSlider(currentIndex);
+                }, 5000); // Change slide every 5 seconds
+                </script>
 
 
 
-            <!-- <div class="slide-item p_relative">
+            <!--<div class="slide-item p_relative">
                     <div class="image-layer p_absolute" style="background-image:url(assets/images/banner/banner-2.jpg)"></div>
                     <div class="auto-container">
                         <div class="content-box p_relative d_block z_5">
@@ -1261,10 +1256,10 @@
                             <div class="widget-content">
                                 <ul  class="list clearfix">
                                     <li><a href="../index.html">Home</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Register</a></li>
-                                    <li><a href="#">Login</a></li>
-                                    <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                                    <li><a href="#" style="color: #fff;">About Us</a></li>
+                                    <li><a href="#" style="color: #fff;">Register</a></li>
+                                    <li><a href="#" style="color: #fff;">Login</a></li>
+                                    <li><a href="../privacy-policy.html" style="color: #fff;">Privacy Policy</a></li>
                                 </ul>
                             </div>
                         </div>
