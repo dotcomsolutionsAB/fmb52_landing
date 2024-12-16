@@ -277,28 +277,143 @@
 
         <!-- banner-section -->
         <section class="banner-section p_relative centred">
-            <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-            <!-- <div class="banner-carousel owl-theme owl-carousel owl-dots-none" data-owl-options='{"items": 1, "loop": true, "autoplay": true, "autoplayTimeout": 5000}'> -->
-                <div class="banner-carousel owl-dots-none owl-theme owl-carousel">   
-                <div class="slide-item p_relative" style="padding-top: 400px; padding-bottom: 220px;">
-                    <div class="image-layer p_absolute" style="background-image:url(assets/images/banner/banner-1.jpg)">
-                    </div>
-                    <div class="auto-container">
-                    </div>
-                </div>
-                <div class="slide-item p_relative" style="padding-top: 400px; padding-bottom: 220px;">
-                    <div class="image-layer p_absolute" style="background-image:url(assets/images/banner/banner-2.jpg)">
-                    </div>
-                    <div class="auto-container">
-                    </div>
-                </div>
-                <div class="slide-item p_relative" style="padding-top: 400px; padding-bottom: 220px;">
-                    <div class="image-layer p_absolute" style="background-image:url(assets/images/banner/banner-3.jpg)">
-                    </div>
-                    <div class="auto-container">
-                    </div>
-                </div>
-            </div>
+
+  <style>
+
+    .slider-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+      height: 60vh; /* Adjust height as needed */
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .navigation button {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 5px;
+    }
+
+    .navigation button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: white;
+    }
+  </style>
+
+
+<div class="slider-container">
+  <div class="slider">
+    <div class="slide">
+      <img src="assets/images/banner/banner-1.jpg" alt="Aurora Landscape">
+    </div>
+    <div class="slide">
+      <img src="assets/images/banner/banner-2.jpg" alt="Crimson Horizon">
+    </div>
+    <div class="slide">
+      <img src="assets/images/banner/banner-3.jpg" alt="Golden Meadows">
+    </div>
+  </div>
+
+  <div class="navigation">
+    <button class="prev">‹</button>
+    <button class="next">›</button>
+  </div>
+
+  <div class="dots">
+    <div class="dot active" data-slide="0"></div>
+    <div class="dot" data-slide="1"></div>
+    <div class="dot" data-slide="2"></div>
+  </div>
+</div>
+
+<script>
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  const prevButton = document.querySelector('.prev');
+  const nextButton = document.querySelector('.next');
+  const dots = document.querySelectorAll('.dot');
+
+  let currentIndex = 0;
+
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
+
+  nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider(currentIndex);
+  });
+
+  prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlider(currentIndex);
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      currentIndex = parseInt(e.target.dataset.slide);
+      updateSlider(currentIndex);
+    });
+  });
+
+  // Auto-slide functionality
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider(currentIndex);
+  }, 5000); // Change slide every 5 seconds
+</script>
+
+
 
             <!-- <div class="slide-item p_relative">
                     <div class="image-layer p_absolute" style="background-image:url(assets/images/banner/banner-2.jpg)"></div>
